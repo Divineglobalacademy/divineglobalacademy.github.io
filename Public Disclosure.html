@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Public Disclosure - Divine Global Academy</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="public-disclosure.css">
+    <script src="script.js" defer></script>
+    <link rel="icon" type="image/png" href="image/favicon.png">
+
+    <style>
+        #popup-overlay {
+            display: none;
+            position: fixed;
+            z-index: 999;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.8);
+            align-items: center;
+            justify-content: center;
+        }
+
+        #popup-image {
+            max-width: 90%;
+            max-height: 90%;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+        }
+    </style>
+</head>
+
+<body>
+    <section id="public-disclosure">
+        <h2>📜 Public Disclosure</h2>
+        <p>Click on each item below to view the official document.</p>
+
+        <div class="disclosure-grid">
+            <div class="disclosure-item" onclick="openDisclosure('docs/affiliationLetter.jpeg')">
+                <h4>Affiliation/Upgradation Letter</h4>
+            </div>
+            <div class="disclosure-item" onclick="openDisclosure('docs/TrustCertificate.jpeg')">
+                <h4>Trust/Company Registration</h4>
+            </div>
+            <div class="disclosure-item" onclick="openDisclosure('Pdf/NOC By State Goverment .pdf')">
+                <h4>No Objection Certificate (NOC)</h4>
+            </div>
+            <div class="disclosure-item" onclick="openDisclosure('Pdf/Fee Deatils Session 2024-2025 (1).pdf')">
+                <h4>RTE Recognition Certificate</h4>
+            </div>
+            <div class="disclosure-item" onclick="openDisclosure('Pdf/Fee Deatils Session 2024-2025.jpeg')">
+                <h4>Building Safety Certificate</h4>
+            </div>
+            <div class="disclosure-item" onclick="openDisclosure('docs/FireCertificate.jpeg')">
+                <h4>Fire Safety Certificate</h4>
+            </div>
+            <div class="disclosure-item" onclick="openDisclosure('docs/DEOCertificate.jpeg')">
+                <h4>Self-Certification</h4>
+            </div>
+            <div class="disclosure-item" onclick="openDisclosure('docs/WaterHealthCertificate.jpeg')">
+                <h4>Water, Health & Sanitation</h4>
+            </div>
+            <div class="disclosure-item" onclick="openDisclosure('image/Anuual Fee.png')">
+                <h4>Fee Structure</h4>
+            </div>
+            <div class="disclosure-item" onclick="openDisclosure('Pdf/Annual Calender..pdf')">
+                <h4>Academic Calendar</h4>
+            </div>
+            <div class="disclosure-item" onclick="openDisclosure('docs/List_of_SMC.jpeg')">
+                <h4>SMC Members</h4>
+            </div>
+            <div class="disclosure-item" onclick="openDisclosure('image/P.T.A list.png')">
+                <h4>PTA Members</h4>
+            </div>
+            <div class="disclosure-item" onclick="openDisclosure('image/Board Result.png')">
+                <h4>Board Results (Last 3 Years)</h4>
+            </div>
+        </div>
+    </section>
+
+    <!-- Image Modal -->
+    <div id="popup-overlay" onclick="this.style.display='none'">
+        <img id="popup-image" alt="Document" />
+    </div>
+
+    <script>
+        function openDisclosure(src) {
+            const extension = src.split('.').pop().toLowerCase();
+            const imageExtensions = ['jpg', 'jpeg', 'png', 'gif', 'webp'];
+
+            if (imageExtensions.includes(extension)) {
+                // Show image in modal
+                const img = document.getElementById('popup-image');
+                const overlay = document.getElementById('popup-overlay');
+                img.src = src;
+                overlay.style.display = 'flex';
+            } else if (extension === 'pdf') {
+                // Open PDF in new tab
+                window.open(src, '_blank');
+            } else {
+                alert("Unsupported file type: " + extension);
+            }
+        } // Disable right-click everywhere
+        // document.addEventListener('contextmenu', function (e) {
+        //   e.preventDefault();
+        // });
+    </script>
+</body>
+
+</html>
